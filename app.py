@@ -9,7 +9,7 @@ def main_page():
 
     data = get_json()
 
-    return render_template('view.html',json=data["recommendations"],len=len(data["recommendations"]))
+    return render_template('our_cards.html',json=data["recommendations"],len=len(data["recommendations"]))
 
 
 @app.route('/add',methods=["GET", "POST"])
@@ -18,11 +18,16 @@ def add_recommendation():
         forname = request.form.get("forname")
         byname = request.form.get("byname")
         work = request.form.get("recommendation")
+        l1 = request.form.get("l1")
+        l2 = request.form.get("l2")
+
 
         new_dict = {
             "forname":forname,
             "byname":byname,
-            "work":work
+            "work":work,
+            "l1":l1,
+            "l2":l2
         }
 
         data = get_json()

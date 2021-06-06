@@ -1,1 +1,18 @@
-{"recommendations": [{"forname": "Talha", "byname": "Praveena", "work": "noice"}, {"forname": "Praveena", "byname": "Talha", "work": "cools"}]}
+{
+    "recommendations": [
+        {
+            "forname": "Talha",
+            "byname": "Patrick Boyle",
+            "work": "I have worked with talha on a top secret project, twas fun",
+            "l1": "https://www.linkedin.com/in/talha-abdurrahman-042b8b14a/",
+            "l2": "https://www.linkedin.com/in/patrickboyle/"
+        },
+        {
+            "forname": "Praveena",
+            "byname": "Talha",
+            "work": "Semma work , super aa panraaru",
+            "l1": "https://www.linkedin.com/in/praveena/",
+            "l2": "https://www.linkedin.com/in/talha/"
+        }
+    ]
+}
