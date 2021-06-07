@@ -38,7 +38,7 @@
                 <h2>
                     <a href='{{json[i]["l2"]}}'>Recommended By: {{json[i]["byname"]}}</a>
                 </h2>
-                <a href="/view/{{json[i]["forname"]}}" ><button  class="accordion">{{first_words}}</button></a>
+                <a href="/view/{{json[i]["forname"]}}" ><button  class="accordion">{{json[i]["first_words"]}}</button></a>
                 <div class="panel">
                     <p>
                         {{json[i]["work"]}}
@@ -81,7 +81,7 @@
                 <h2>
                     <a href='{{json[i]["l2"]}}'> Recommended By: {{json[i]["byname"]}}</a>
                 </h2>
-                <a href="/view/{{json[i]["forname"]}}" ><button  class="accordion">{{first_words}}</button></a>
+                <a href="/view/{{json[i]["forname"]}}" ><button  class="accordion">{{json[i]["first_words"]}}</button></a>
                 <div class="panel">
                     <p>
                         {{json[i]["work"]}}
@@ -101,7 +101,7 @@
         {% endfor %}
 
         <p>Maintained By: <a href="https://featurepreneur.com/">TactLabs</a>.</p>
-        <a href="/add"><button style="font-size: 20px;" type="button" class="btn btn-danger">ADD RECOMMENDATION</button></a>
+        <a href="/add"><button style="font-size: 15px;" type="button" class="btn btn-danger">ADD RECOMMENDATION</button></a>
     </main>
 </body>
 <style>

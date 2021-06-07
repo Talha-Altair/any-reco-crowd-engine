@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import json
+import pprint
 app = Flask(__name__)
 
 USERS_JSONPATH = "data.json"
@@ -9,28 +10,21 @@ def main_page():
 
     data = get_json()
 
-    first_words = get_first_words(data["recommendations"])
-
-    return render_template('index.html',json=data["recommendations"],len=len(data["recommendations"]),first_words = first_words)
+    return render_template('index.html',json=data["recommendations"],len=len(data["recommendations"]))
 
 def get_first_words(data):
 
-    for i in range(len(data)):
+    text = data
 
-        text = data[i]["work"]
+    text = text.split()
 
-        text = text.split()
+    first_words = ''
 
-        first_words = ''
+    for j in range(7):
 
-        for i in range(7):
-            first_words = first_words +' ' + str((text[i]))
+        first_words = first_words + ' ' + str((text[j]))
 
-        # print(first_words)
-
-        # data[i]["first_words"] = first_words
-
-    first_words = first_words + '...'
+    first_words = first_words  + '...'
 
     return first_words
 
@@ -49,9 +43,6 @@ def view_page(name):
     return render_template('single.html',json=single_data)
 
 
-
-
-
 @app.route('/add',methods=["GET", "POST"])
 def add_recommendation():
     if request.method == "POST":
@@ -60,6 +51,7 @@ def add_recommendation():
         work = request.form.get("recommendation")
         l1 = request.form.get("l1")
         l2 = request.form.get("l2")
+        first_words = get_first_words(work)
 
 
         new_dict = {
@@ -67,7 +59,8 @@ def add_recommendation():
             "byname":byname,
             "work":work,
             "l1":l1,
-            "l2":l2
+            "l2":l2,
+            "first_words":first_words
         }
 
         data = get_json()
