@@ -9,7 +9,47 @@ def main_page():
 
     data = get_json()
 
-    return render_template('our_cards.html',json=data["recommendations"],len=len(data["recommendations"]))
+    first_words = get_first_words(data["recommendations"])
+
+    return render_template('index.html',json=data["recommendations"],len=len(data["recommendations"]),first_words = first_words)
+
+def get_first_words(data):
+
+    for i in range(len(data)):
+
+        text = data[i]["work"]
+
+        text = text.split()
+
+        first_words = ''
+
+        for i in range(7):
+            first_words = first_words +' ' + str((text[i]))
+
+        # print(first_words)
+
+        # data[i]["first_words"] = first_words
+
+    first_words = first_words + '...'
+
+    return first_words
+
+@app.route('/view/<name>',methods=["GET", "POST"])
+def view_page(name):
+
+    data = get_json()
+
+    data = data["recommendations"]
+
+    for i in range(len(data)):
+        if data[i]["forname"]==name:
+            single_data = data[i]
+    
+    
+    return render_template('single.html',json=single_data)
+
+
+
 
 
 @app.route('/add',methods=["GET", "POST"])

@@ -10,34 +10,33 @@
 
 <body>
     <main role="main">
-        {% for i in range(len) %}
-
-        {% if i%2 ==0 %}
 
         <article class="card-60 social">
             <figure>
                 <a class="ribbon-buy popular" href="#" title="Popular">
 
                 </a>
-                <img src="https://source.unsplash.com/ZFQh_gS5TJc/800x600" alt="La Sagrada Familia">
+                <img style="max-width: 350px;" src="https://source.unsplash.com/random"
+                    alt="La Sagrada Familia">
             </figure>
             <!-- end figure-->
             <div class="flex-content">
                 <header>
                     <p class="user">
                         <strong>
-                            <a href='{{json[i]["l1"]}}' style="font-size: 40px;" title="Full Name" href="#">
-                                {{json[i]["forname"]}}
+                            <a href='{{json["l1"]}}' style="font-size: 40px;" title="Full Name" href="#">
+                                {{json["forname"]}}
                             </a>
                         </strong>
                     </p>
                 </header>
                 <h2>
-                    <a href='{{json[i]["l2"]}}'>Recommended By: {{json[i]["byname"]}}</a>
+                    <a href='{{json["l2"]}}'>Recommended By: {{json["byname"]}}</a>
                 </h2>
-                <p>
-                    {{json[i]["work"]}}
-                </p>
+                    <p>
+                        {{json["work"]}}
+                    </p>
+                
                 <footer>
                     <p>
                         <a class="bt-love" title="Love" href="#">
@@ -51,46 +50,6 @@
             </div>
             <!-- end .flex-content-->
         </article>
-
-        {% else %}
-
-        <article class="card-50">
-            <figure>
-                <a href="" title="Buy">
-
-                    <img src="https://source.unsplash.com/GgEtIbD0hVo/800x600" alt="Nike Shoes">
-                </a>
-            </figure>
-            <!-- end figure-->
-            <div class="flex-content">
-                <h2>
-                </h2>
-                <p class="user">
-                    <strong>
-                        <a href='{{json[i]["l1"]}}' style="font-size: 40px;" title="Full Name" href="#">
-                            {{json[i]["forname"]}}
-                        </a>
-                    </strong>
-                </p>
-                <h2>
-                    <a href='{{json[i]["l2"]}}'> Recommended By: {{json[i]["byname"]}}</a>
-                </h2>
-                <p>
-                    {{json[i]["work"]}}
-
-                </p>
-                <footer>
-                    <p>
-
-                    </p>
-                </footer>
-            </div>
-            <!-- end .flex-content-->
-        </article>
-
-        {% endif %}
-
-        {% endfor %}
 
         <p>Maintained By: <a href="https://featurepreneur.com/">TactLabs</a>.</p>
     </main>
@@ -172,8 +131,8 @@
 
     img {
         border: 0;
-        height: auto;
-        max-width: 100%;
+        height: auto; 
+        /* max-width: 350px; */
     }
 
     img:hover {
@@ -582,7 +541,7 @@ object-fit to re-frame images rather than just stretch and resize them  === */
         background-image: url('http://jlantunez.com/imgs/spritecard.png');
         background-repeat: no-repeat;
         background-position: center 88%;
-        text-indent: -4000px;
+        text-indent: -2000px;
     }
 
     [class*="card-"] a.button.followed,
@@ -612,5 +571,46 @@ object-fit to re-frame images rather than just stretch and resize them  === */
         color: #333;
     }
 </style>
+<style>
+    .accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+      }
+      
+      .active, .accordion:hover {
+        background-color: #ccc; 
+      }
+      
+      .panel {
+        padding: 0 18px;
+        display: none;
+        background-color: white;
+        overflow: hidden;
+      }
+</style>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
 
 </html>
